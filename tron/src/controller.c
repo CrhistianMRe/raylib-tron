@@ -87,8 +87,10 @@ void movePlayer2(){
     
 
 void initGame(){
-    if ((player1.state == false && player2.state == false )) {
+    if (!(player1.state == true|| player2.state == true )) {
      
+    printf("player 1: %d\n", player1.state);
+
     gameOver = false; 
 
     gameStarted = false;
