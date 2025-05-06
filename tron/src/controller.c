@@ -41,22 +41,22 @@ if (player2.trailLength <= 10000) {
 
  void movePlayer1(){
     if (IsKeyDown(KEY_UP)) {
-        player1.position.y -= 5;
+        player1.position.y -= 2;
         player1.rotation = 270;
         savePos1();
     }
     if (IsKeyDown(KEY_DOWN)) {
-        player1.position.y += 5;
+        player1.position.y += 2;
         player1.rotation = 90;
         savePos1();
     }
     if (IsKeyDown(KEY_LEFT)) {
-        player1.position.x -= 5;
+        player1.position.x -= 2;
         player1.rotation = 180;
         savePos1();
     }
     if (IsKeyDown(KEY_RIGHT)) {
-        player1.position.x += 5;
+        player1.position.x += 2;
         player1.rotation = 0;
         savePos1();
     }
@@ -64,22 +64,22 @@ if (player2.trailLength <= 10000) {
 
 void movePlayer2(){
     if (IsKeyDown(KEY_W)) {
-        player2.position.y -= 5;
+        player2.position.y -= 2;
         player2.rotation = 270;
         savePos2();
     }
     if (IsKeyDown(KEY_S)) {
-        player2.position.y += 5;
+        player2.position.y += 2;
         player2.rotation = 90;
         savePos2();
     }
     if (IsKeyDown(KEY_A)) {
-        player2.position.x -= 5;
+        player2.position.x -= 2;
         player2.rotation = 180;
         savePos2();
     }
     if (IsKeyDown(KEY_D)) {
-        player2.position.x += 5;
+        player2.position.x += 2;
         player2.rotation = 0;
         savePos2();
     }
