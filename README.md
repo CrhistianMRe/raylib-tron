@@ -13,9 +13,12 @@ A Single-Console Video Game
 * properly modulize your project
 
 ## Deliverables
-* A zip file for your project source
-* A PDF of player's manual
-* descriptions of the game
-* how to play
-* A PDF of your reflections on the development
-* In-class demonstration in week 17 (bonus points)
+1. A zip file for your project source
+2. A PDF of player's manual
+descriptions of the game and how to play
+
+3. A PDF of your reflections on the development
+## Encargados
+1. Puesi
+2. Lily y Kaise
+3. Casias y mich
