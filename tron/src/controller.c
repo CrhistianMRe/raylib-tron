@@ -1,11 +1,16 @@
 #include "player.h"
+#include "unistd.h"
 #include "render.c"
+#include "raylib.h"
+#include "stdlib.h"
 //No tocar esto lo reconoce raylib
 static bool gameStarted = false;
 static bool gameOver = false;
 
 Triangle player1 = {(Vector2){250, 100}, 20, 40, RED, false, 0, 0};
+Triangle sample1 = {(Vector2){250, 100}, 20, 40, RED, false, 0, 0};
 Triangle player2 = {(Vector2){250, 400}, 20, 40, BLUE, false, 0, 0};
+Triangle sample2= {(Vector2){250, 400}, 20, 40, BLUE, false, 0, 0};
 /*I tried to use the same player.h header for both but i have the theory that as it is a pointer and both being arrays
 it breaks because being dynamic also saves it on the same memory so i implemented different approaches/instances*/
 Vector2 trailFix[1000]; 
@@ -86,43 +91,44 @@ void movePlayer2(){
 }   
     
 
-void initGame(){
+void initStage(){
     if (!(player1.state == true|| player2.state == true )) {
      
-    printf("player 1: %d\n", player1.state);
+    //printf("player 1: %d\n", player1.state);
 
-    gameOver = false; 
-
-    gameStarted = false;
-    //player1
     movePlayer1();
 
     movePlayer2();
 
-    //movePlayer1();
     defineTriShape(&player1, &player2);
     createLine(&player1, &player2, trailFix);
-  } 
+  } else {
+    gameOver = true;
+    gameStarted = false;
+
+  }
 }
 
-void updateGame() {
-    if (!gameStarted) {
+void initGame() {
+    if (!gameStarted && !gameOver) {
+            DrawText(TextFormat("Press space to start!"), 1, 1, 20, GREEN);
         if (IsKeyPressed(KEY_SPACE)) {
             gameStarted = true;
         }
-    }
-    else if (!gameOver) {
-        //updatePlayer(&player1);
-        
-        //updatePlayer(&player2);
-        movePlayer1();
+        } else if (!gameStarted && gameOver){
+                DrawText(TextFormat("Press R to restart!"),1, 1, 40, BLUE);
+            if (IsKeyPressed(KEY_R)) {
+                exit(EXIT_SUCCESS);
+                system("Craylib.exe");
+                gameOver = false;
+            }
+        } else if(gameStarted){
+            initStage();
 
-        movePlayer2();
-    }
-    else {
-        if (IsKeyPressed(KEY_R)) {
-            initGame();
         }
-    }
 }
+    
+        
+    
+
 
