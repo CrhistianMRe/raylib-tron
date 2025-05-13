@@ -106,14 +106,21 @@ int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
         //Checkear la punta creo cuando pega jugador 1
          for (long int a= 0;a < player1->trailLength; a++) {
              if ((trailFix[a].x == points[3].x && trailFix[a].y == points[3].y) && player1->state == false) {
-                 
                 player1->state = true;
-
+             }
+             //Punta pega a el mismo
+             if ((trailFix[a].x == points[0].x && trailFix[a].y == points[0].y) && player1->state == false) {
+                player1->state = true;
              }
          }
         //Checkear la punta creo cuando pega jugador 2
         for (long int a= 0 ;a < player2->trailLength; a++) {
              if ((player2->trail[a].x == points[0].x && player2->trail[a].y == points[0].y)&& player2->state == false) {
+                player2->state = true;
+
+             }
+             //Punto pega a el mismo 2
+             if ((player2->trail[a].x == points[3].x && player2->trail[a].y == points[3].y)&& player2->state == false) {
                 player2->state = true;
 
              }
