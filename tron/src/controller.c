@@ -6,11 +6,12 @@
 //No tocar esto lo reconoce raylib
 static bool gameStarted = false;
 static bool gameOver = false;
+int p1p, p2p;
 
-Triangle player1 = {(Vector2){250, 100}, 20, 40, RED, false, 0, 0};
-Triangle sample1 = {(Vector2){250, 100}, 20, 40, RED, false, 0, 0};
-Triangle player2 = {(Vector2){250, 400}, 20, 40, BLUE, false, 0, 0};
-Triangle sample2= {(Vector2){250, 400}, 20, 40, BLUE, false, 0, 0};
+Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
+Triangle sample1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
+Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
+Triangle sample2= {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
 /*I tried to use the same player.h header for both but i have the theory that as it is a pointer and both being arrays
 it breaks because being dynamic also saves it on the same memory so i implemented different approaches/instances*/
 Vector2 trailFix[1000]; 
@@ -103,28 +104,48 @@ void initStage(){
     defineTriShape(&player1, &player2);
     createLine(&player1, &player2, trailFix);
   } else {
+
+
+      if (player2.state = true) {
+        DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
+        p1p +=1;
+        //Sleep or anything to show who won and restart
+      } else {
+          p2p +=1;
+        //Sleep or anything to show who won and restart
+        DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
+            
+      }
     gameOver = true;
     gameStarted = false;
-
   }
 }
 
-void initGame() {
+void initGame(char *argv[], char *argv2[]) {
     if (!gameStarted && !gameOver) {
-            DrawText(TextFormat("Press space to start!"), 1, 1, 20, GREEN);
+            DrawText(TextFormat("Press space to start!"), 300, 500, 50, GREEN);
         if (IsKeyPressed(KEY_SPACE)) {
             gameStarted = true;
         }
         } else if (!gameStarted && gameOver){
-                DrawText(TextFormat("Press R to restart!"),1, 1, 40, BLUE);
+                DrawText(TextFormat("Press R to restart!"),300, 500, 50, BLUE);
             if (IsKeyPressed(KEY_R)) {
-                exit(EXIT_SUCCESS);
-                system("Craylib.exe");
+                //Continue there
+                //https://stackoverflow.com/questions/49765045/how-to-pass-a-variable-via-exec 
+                char str1[100];
+                char str2[100];
+                snprintf(str, sizeof(str), "%d", p1p);
+                snprintf(str, sizeof(str2), "%d", p2p);
+                int error;
+                error = execl("/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib", "Craylib", "-l", NULL);
+                //char *args[]={"./Craylib", NULL};
+                //execvp(args[0], args);
+                printf("%d\n", error);
                 gameOver = false;
+                exit(EXIT_SUCCESS);
             }
         } else if(gameStarted){
             initStage();
-
         }
 }
     
