@@ -87,7 +87,7 @@ int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
         //printf("player 1: %d\n", player1->state); debug
         //Vector2* collisionPoint;
     
-    /*I dont know why this function doesnt work so i will make my own one to check the collision. Update= it doesnt work with traingles 
+    /*I dont know why this function doesnt work so i will make my own one to check the collision. Update= it doesnt work with triangles 
         player1->state = CheckCollisionLines(trailFix[playerq], trailFix[playerq+1], trailFix[playerq], trailFix[playerq+1], collisionPoint);
         player2->state = CheckCollisionLines(player2->trail[playerq], player2->trail[playerq +1], player2->trail[playerq], player2->trail[playerq+1], collisionPoint);
         printf("player 2: %d\n", player2->state);

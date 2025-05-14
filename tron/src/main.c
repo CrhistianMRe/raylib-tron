@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "controller.c"
 
-int main(int argc, char *argv[], char *argv2[]) {
+int main(int argc, char* argv[]) {
     SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
 
     InitWindow(1000, 1000, "Demo Tron");
@@ -12,7 +12,8 @@ int main(int argc, char *argv[], char *argv2[]) {
         //updateGame();  //
 
         SetTargetFPS(60);
-        initGame(&argv);
+        //printf("Numero enter ooooiio%d\n", argc);
+        initGame(argc, argv);
         BeginDrawing();
         ClearBackground(BLACK);
 
