@@ -10,7 +10,7 @@ typedef struct Triangle{
     Color color;
     float rotation;
     bool state;
-    int trailLength;
+    long int trailLength;
     Vector2 trail[];
 } Triangle;
 
