@@ -175,9 +175,9 @@ void initGame(int argc, char *argv[]) {
 
             if (IsKeyPressed(KEY_R)) {
 
-
+                //Restart game
                 restartPos();
-
+                gameOver = false;
 
 
                 //Continue there
@@ -209,7 +209,6 @@ void initGame(int argc, char *argv[]) {
                 //char *args[]={"./Craylib", NULL};
                 
                 //execvp(args[0], args);*//*
-                gameOver = false;
                 
             }
         } else if(gameStarted){
