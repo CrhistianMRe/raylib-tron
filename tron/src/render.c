@@ -60,13 +60,18 @@ int defineTriShape(Triangle *player1, Triangle *player2){
     q3 = RotatePoint(q3, player2->position, player2->rotation);
 
     points[0] = p1;
+
     points[1] = p2;
+
     points[2] = p3;
+
     points[3] = q1;
+
     points[4] = q2;
+
     points[5] = q3;
 
-    displayTriangle(player1, player2 );
+    displayTriangle(player1, player2);
 
     return 0;
 }
@@ -99,6 +104,7 @@ int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
 
         }
     }
+
     //Solucion: Checkear la colision de la punta con el array de trail de cada jugador
     /*if (playerq != 1) {
         player1->state = (CheckCollisionPointTriangle(player2->trail[playerp],  points[0], points[1], points[2]));
