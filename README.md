@@ -15,10 +15,11 @@ A Single-Console Video Game
 ## Deliverables
 1. A zip file for your project source
 2. A PDF of player's manual
-descriptions of the game and how to play
-
+descriptions of the game and how to play and a short introduction presentation for week 17
 3. A PDF of your reflections on the development
 ## Encargados
 1. Puesi
 2. Lily y Kaise
 3. Casias y mich
+## Deadline
+Week (17) Final Exam week
