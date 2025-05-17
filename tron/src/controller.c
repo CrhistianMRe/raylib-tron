@@ -7,12 +7,13 @@
 static bool gameStarted = false;
 static bool gameOver = false;
 
-
-
 Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
-Triangle sample1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
 Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
-Triangle sample2= {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
+
+//Triangle sample1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
+
+//Triangle sample2= {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
+
 /*I tried to use the same player.h header for both but i have the theory that as it is a pointer and both being arrays
 it breaks because being dynamic also saves it on the same memory so i implemented different approaches/instances*/
 Vector2 trailFix[10000]; 
@@ -34,20 +35,20 @@ int scoreP2 = 0;
 //player2.state = true;
 //
 void savePos1(){
-if (player1.trailLength <= 10000) {
-            trailFix[player1.trailLength] = player1.position;
-            player1.trailLength+=1;
-        }
+    if (player1.trailLength <= 10000) {
+        trailFix[player1.trailLength] = player1.position;
+        player1.trailLength+=1;
+    }
 }
 
 void savePos2(){
-if (player2.trailLength <= 10000) {
-            player2.trail[player2.trailLength] = player2.position;
-            player2.trailLength+=1;
-        }
+    if (player2.trailLength <= 10000) {
+        player2.trail[player2.trailLength] = player2.position;
+        player2.trailLength+=1;
+    }
 }
 
- void movePlayer1(){
+void movePlayer1(){
     if (IsKeyDown(KEY_UP)) {
         player1.position.y -= 2;
         player1.rotation = 270;
@@ -94,33 +95,33 @@ void movePlayer2(){
         savePos2();
     }
 }   
- 
+
 
 void restartPos(){
-        
-                player1.position = (Vector2){500, 200};
 
-                player2.position = (Vector2){500, 800};
+    player1.position = (Vector2){500, 200};
 
-                player1.rotation = 0;
+    player2.position = (Vector2){500, 800};
 
-                player2.rotation = 0;
+    player1.rotation = 0;
 
-                player1.state = false;
+    player2.rotation = 0;
 
-                player2.state = false;
+    player1.state = false;
+
+    player2.state = false;
 
 
-                for (int i = 0; i < player1.trailLength; i++) {
-                    player2.trail[i] = (Vector2){0, 0}; 
-                }
-                for (int i = 0; i < player2.trailLength; i++) {
-                    trailFix[i] = (Vector2){0, 0}; 
-                }
-                player1.trailLength = 0;
-
-                player2.trailLength = 0;               
+    for (int i = 0; i < player1.trailLength; i++) {
+        player2.trail[i] = (Vector2){0, 0}; 
     }
+    for (int i = 0; i < player2.trailLength; i++) {
+        trailFix[i] = (Vector2){0, 0}; 
+    }
+    player1.trailLength = 0;
+
+    player2.trailLength = 0;               
+}
 void initStage(){
     if (!(player1.state || player2.state)) {
 
@@ -134,34 +135,34 @@ void initStage(){
         createLine(&player1, &player2, trailFix);
 
         /*char mess1[100];
-        char mess2[100];
-        sprintf(mess1, "%d", scoreP1);
-        sprintf(mess2, "%d", scoreP2);*/
-        
+          char mess2[100];
+          sprintf(mess1, "%d", scoreP1);
+          sprintf(mess2, "%d", scoreP2);*/
+
         //printf("point p1: %d", scoreP1);
 
 
 
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
-        
+
         DrawText(TextFormat("Player2 score: %d", scoreP2), 600, 1, 20, BLUE);
-  } else {
-      if (player2.state) {
+    } else {
+        if (player2.state) {
 
-        //Sleep or anything t2o show who won and restart
-        DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
+            //Sleep or anything t2o show who won and restart
+            DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
 
-        scoreP1 += 1;
-      } else {
+            scoreP1 += 1;
+        } else {
 
-        //Sleep or anything to show who won and restart
-        DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
-        scoreP2+=1;
-            
-      }
-    gameOver = true;
-    gameStarted = false;
-  }
+            //Sleep or anything to show who won and restart
+            DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
+            scoreP2+=1;
+
+        }
+        gameOver = true;
+        gameStarted = false;
+    }
 }
 
 void initGame(int argc, char *argv[]) {
@@ -170,55 +171,55 @@ void initGame(int argc, char *argv[]) {
         if (IsKeyPressed(KEY_SPACE)) {
             gameStarted = true;
         }
-        } else if (!gameStarted && gameOver){
-                DrawText(TextFormat("Press R to restart!"),300, 500, 50, BLUE);
+    } else if (!gameStarted && gameOver){
+        DrawText(TextFormat("Press R to restart!"),300, 500, 50, BLUE);
 
-            if (IsKeyPressed(KEY_R)) {
+        if (IsKeyPressed(KEY_R)) {
 
-                //Restart game
-                restartPos();
-                gameOver = false;
+            //Restart game
+            restartPos();
+            gameOver = false;
 
 
-                //Continue there
-                /*char str1[100];
+            //Continue there
+            /*char str1[100];
 
-                char str2[100];
+              char str2[100];
 
-                snprintf(str1, sizeof(str1), "%d", scoreP1);
+              snprintf(str1, sizeof(str1), "%d", scoreP1);
 
-                snprintf(str2, sizeof(str2), "%d", scoreP2);
-                printf("point p1: %d", scoreP1);
-                printf("point p2222222222222222222222222222222222222222222: %d", scoreP2);
-                char path[100] ="/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib" ;
-                if (argc != 1) {
-                    scoreP1 = atoi(argv[1]);
+              snprintf(str2, sizeof(str2), "%d", scoreP2);
+              printf("point p1: %d", scoreP1);
+              printf("point p2222222222222222222222222222222222222222222: %d", scoreP2);
+              char path[100] ="/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib" ;
+              if (argc != 1) {
+              scoreP1 = atoi(argv[1]);
 
-                    scoreP2 = atoi(argv[2]);
-                }
+              scoreP2 = atoi(argv[2]);
+              }
 
-                 
-                execlp(path, path, str1, str2, NULL);
 
-                */
+              execlp(path, path, str1, str2, NULL);
 
-                //Este sirve
-                
-                //error = execl("/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib", "Craylib", "-l", NULL);
-                
-                //char *args[]={"./Craylib", NULL};
-                
-                //execvp(args[0], args);*//*
-                
-            }
-        } else if(gameStarted){
-            initStage();
+*/
+
+            //Este sirve
+
+            //error = execl("/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib", "Craylib", "-l", NULL);
+
+            //char *args[]={"./Craylib", NULL};
+
+            //execvp(args[0], args);*//*
+
         }
+    } else if(gameStarted){
+        initStage();
+    }
 
-    
+
 }
-    
-        
-    
+
+
+
 
 
