@@ -1,4 +1,4 @@
-#include "player.h"
+#include "../include/player.h"
 #include "unistd.h"
 #include "render.c"
 #include "raylib.h"
