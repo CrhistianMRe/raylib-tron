@@ -1,8 +1,10 @@
 ## How to compile?
 1. Install raylib and dependencies
 2. Have make installed to run the make file
-3. Run "make tronWindows" to generate tronGame.exe
+3. Run "make tronWindows" in the terminal to generate tronGame.exe
 4. Execute tronGame.exe
+Note: For linux users replace "tronWindows" with "tronLinux"
+
 ## Goal
 A Single-Console Video Game
 

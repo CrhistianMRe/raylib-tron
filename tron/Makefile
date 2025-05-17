@@ -1,4 +1,4 @@
-tronArch: src/main.c
+tronLinux: src/main.c
 	gcc src/main.c -o tronGame -I include/ -L lib/ -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 tronWindows: src/main.c
