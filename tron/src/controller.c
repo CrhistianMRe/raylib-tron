@@ -1,7 +1,7 @@
 #include "../include/player.h"
 #include "unistd.h"
 #include "render.c"
-#include "raylib.h"
+#include "../include/raylib.h"
 #include "stdlib.h"
 //No tocar esto lo reconoce raylib
 static bool gameStarted = false;

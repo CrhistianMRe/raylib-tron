@@ -1,4 +1,4 @@
-#include "raylib.h"
+#include "../include/raylib.h"
 #include "controller.c"
 
 int main(int argc, char* argv[]) {
