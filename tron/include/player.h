@@ -5,8 +5,8 @@
 
 typedef struct Triangle{
     Vector2 position;
-    float height;
-    float width;
+    long int height;
+    long int width;
     Color color;
     float rotation;
     bool state;

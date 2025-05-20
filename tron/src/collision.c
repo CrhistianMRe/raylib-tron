@@ -5,7 +5,6 @@
 
 
 int checkBorders(Triangle *player, Vector2 front){
-
     if (((front.x > 1000 || front.y > 1000) || (front.x < 0 || front.y < 0)) && !(player->state)) {
         player->state = true;
     }
@@ -13,32 +12,32 @@ int checkBorders(Triangle *player, Vector2 front){
 }
 
 
-int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vector2 points[]){
+int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
 
-    //Checkear la punta creo cuando pega jugador 1
+    //Checkear la punta player 2 cuando pega jugador 1
     for (long int a= 0;a < player1->trailLength; a++) {
-        if ((trailFix[a].x == points[3].x && trailFix[a].y == points[3].y) && player1->state == false) {
+        if ((trailFix[a].x == vertexP2[0].x && trailFix[a].y == vertexP2[0].y) && player1->state == false) {
             player1->state = true;
         }
-        //Punta pega a el mismo
-        if ((trailFix[a].x == points[0].x && trailFix[a].y == points[0].y) && player1->state == false) {
+        //Punta pega a el mismo player 1
+        if ((trailFix[a].x == vertexP1[0].x && trailFix[a].y == vertexP1[0].y) && player1->state == false) {
             player1->state = true;
         }
     }
     //Checkear la punta creo cuando pega jugador 2
     for (long int a= 0 ;a < player2->trailLength; a++) {
-        if ((player2->trail[a].x == points[0].x && player2->trail[a].y == points[0].y)&& player2->state == false) {
+        if ((player2->trail[a].x == vertexP1[0].x && player2->trail[a].y == vertexP1[0].y)&& player2->state == false) {
             player2->state = true;
 
         }
         //Punto pega a el mismo 2
-        if ((player2->trail[a].x == points[3].x && player2->trail[a].y == points[3].y)&& player2->state == false) {
+        if ((player2->trail[a].x == vertexP2[0].x && player2->trail[a].y == vertexP2[0].y)&& player2->state == false) {
             player2->state = true;
 
         }
     }
-    checkBorders(player1, points[0]);
-    checkBorders(player2, points[3]);
+    checkBorders(player1, vertexP1[0]);
+    checkBorders(player2, vertexP2[0]);
 
     //Solucion: Checkear la colision de la punta con el array de trail de cada jugador
     /*if (playerq != 1) {
