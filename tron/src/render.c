@@ -55,9 +55,9 @@ if (!player1 || !player2) {
     DrawTriangle(vertexP1[0], vertexP1[1], vertexP1[2], player1->color);
     DrawTriangle(vertexP2[0], vertexP2[1], vertexP2[2], player2->color);
 
-    DrawCircleV(vertexP1[0], 5, RED);
+    /*DrawCircleV(vertexP1[0], 5, RED);
     DrawCircleV(vertexP1[1], 5, GREEN);
-    DrawCircleV(vertexP1[2], 5, BLUE);
+    DrawCircleV(vertexP1[2], 5, BLUE);*/
     //printf("DrawTriangle called\n");
 }
     return 0;
