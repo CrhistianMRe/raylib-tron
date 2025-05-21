@@ -1,8 +1,8 @@
 tronWindows: src/main.c
-	gcc src/main.c -o tronGame.exe -Wall -std=c99 -I include/ -L lib/ -lraylibdll -lopengl32 -lgdi32 -lwinmm
+	gcc src/main.c -g -o tronGame.exe -Wall -std=c99 -I include/ -L lib/ -lraylibdll -lopengl32 -lgdi32 -lwinmm
 
 tronLinux: src/main.c
-	gcc src/main.c -o tronGame -I include/ -L lib/ -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+	gcc src/main.c -g -o tronGame -I include/ -L lib/ -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 
 clean:
