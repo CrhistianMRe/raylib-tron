@@ -6,6 +6,7 @@
 //No tocar esto lo reconoce raylib
 static bool gameStarted = false;
 static bool gameOver = false;
+
 int speed = 2;
 
 Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
@@ -34,7 +35,7 @@ int scoreP2 = 0;
 //player2.width = 40;
 //player2.color = BLUE;
 //player2.state = true;
-//
+
 void savePos1(){
     if (player1.trailLength < 10000) {
         trailFix[player1.trailLength] = player1.position;
@@ -70,8 +71,6 @@ void movePlayer1(){
         player1.rotation = 0;
         savePos1();
     }
-
-
 }
 
 void movePlayer2(){
@@ -120,27 +119,23 @@ void restartPos(){
 
     player2.state = false;
 
-
     for (int i = 0; i < player1.trailLength; i++) {
-        player2.trail[i] = (Vector2){0, 0}; 
+        trailFix[i] = (Vector2){0, 0}; 
     }
     for (int i = 0; i < player2.trailLength; i++) {
-        trailFix[i] = (Vector2){0, 0}; 
+        player2.trail[i] = (Vector2){0, 0}; 
     }
     player1.trailLength = 0;
 
     player2.trailLength = 0;               
 }
+
 void initStage(){
     if (!(player1.state || player2.state)) {
 
-        //printf("player 1: %d\n", player1.state);
         movePlayer1();
 
         movePlayer2();
-
-
-
 
         defineTriShape(&player1, &player2);
 
@@ -152,13 +147,12 @@ void initStage(){
           sprintf(mess2, "%d", scoreP2);*/
 
         //printf("point p1: %d", scoreP1);
-
-
-
+        
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
 
         DrawText(TextFormat("Player2 score: %d", scoreP2), 600, 1, 20, BLUE);
     } else {
+
         if (player2.state) {
 
             //Sleep or anything t2o show who won and restart
@@ -177,7 +171,7 @@ void initStage(){
     }
 }
 
-void initGame(int argc, char *argv[]) {
+void initGame() {
     if (!gameStarted && !gameOver) {
         DrawText(TextFormat("Press space to start!"), 300, 500, 50, GREEN);
         if (IsKeyPressed(KEY_SPACE)) {
@@ -185,6 +179,9 @@ void initGame(int argc, char *argv[]) {
         }
     } else if (!gameStarted && gameOver){
         DrawText(TextFormat("Press R to restart!"),300, 500, 50, BLUE);
+
+        printf("player 1: %d\n", player1.state);
+        printf("player 2: %d\n", player2.state);
 
         if (IsKeyPressed(KEY_R)) {
 
@@ -227,8 +224,6 @@ void initGame(int argc, char *argv[]) {
     } else if(gameStarted){
         initStage();
     }
-
-
 }
 
 

@@ -2,7 +2,7 @@
 #define _triangle_h
 #include "raylib.h" 
 
-
+#define MAX_TRAIL 100000
 typedef struct Triangle{
     Vector2 position;
     long int height;
@@ -11,7 +11,7 @@ typedef struct Triangle{
     float rotation;
     bool state;
     long int trailLength;
-    Vector2 trail[];
+    Vector2 trail[MAX_TRAIL];
 } Triangle;
 
 

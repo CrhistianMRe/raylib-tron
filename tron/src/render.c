@@ -9,6 +9,7 @@ Vector2 vertexP2[3];
 
 // Función para rotar un punto
 Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
+
     float rad = rotation * (PI / 180.0f);
 
     float cosR = cosf(rad);
@@ -28,16 +29,20 @@ Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
     return rotated;
 }
 
-int displayTriangle(Triangle *player1, Triangle *player2 ) {
-    printf("Player1 vertices:\n");
+int displayTriangle(Triangle *player1, Triangle *player2) {
+if (!player1 || !player2) {
+    printf("Error: player1 or player2 is NULL\n");
+}else{
+
+    /*printf("Player1 vertices:\n");
     for (int i = 0; i < 3; i++) {
         printf("  vertexP1[%d] = (%.2f, %.2f)\n", i, vertexP1[i].x, vertexP1[i].y);
     }
-
     printf("Player2 vertices:\n");
     for (int i = 0; i < 3; i++) {
         printf("  vertexP2[%d] = (%.2f, %.2f)\n", i, vertexP2[i].x, vertexP2[i].y);
-    }
+    }*/
+    
     DrawLineV(vertexP1[0], vertexP1[1], WHITE);
     DrawLineV(vertexP1[1], vertexP1[2], WHITE);
     DrawLineV(vertexP1[2], vertexP1[0], WHITE);
@@ -54,6 +59,7 @@ int displayTriangle(Triangle *player1, Triangle *player2 ) {
     DrawCircleV(vertexP1[1], 5, GREEN);
     DrawCircleV(vertexP1[2], 5, BLUE);
     //printf("DrawTriangle called\n");
+}
     return 0;
 }
 
