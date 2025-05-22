@@ -153,18 +153,26 @@ void initStage(){
         DrawText(TextFormat("Player2 score: %d", scoreP2), 600, 1, 20, BLUE);
     } else {
 
-        if (player2.state) {
+        if (player2.state && player1.state) {
+
+            DrawText(TextFormat("Both players died!"), 300, 500, 20, RED);
+
+            scoreP1 += 1;
+            scoreP2 += 1;
+
+        } else if (player2.state){
+
 
             //Sleep or anything t2o show who won and restart
             DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
 
             scoreP1 += 1;
-        } else {
+
+        } else if (player1.state){
 
             //Sleep or anything to show who won and restart
             DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
             scoreP2+=1;
-
         }
         gameOver = true;
         gameStarted = false;

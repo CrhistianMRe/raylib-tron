@@ -11,6 +11,24 @@ int checkBorders(Triangle *player, Vector2 front){
     return 0;
 }
 
+//Checks if a player hits another player
+int checkTriangle(Vector2 vertexP1[], Vector2 vertexP2[], Triangle *player){
+
+    
+    for(int i = 0; i < 3; i++) {
+        if (CheckCollisionPointTriangle(vertexP1[i], vertexP2[0], vertexP2[1], vertexP2[2])) {
+            player->state= true;
+        }
+        if (CheckCollisionPointTriangle(vertexP2[i], vertexP1[0], vertexP1[1], vertexP1[2])) {
+            player->state= true;
+        }
+    }
+
+
+
+    return 0;
+}
+
 
 int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
 
@@ -36,7 +54,12 @@ int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vec
 
         }
     }
+    checkTriangle(vertexP1, vertexP2, player1);
+
+    checkTriangle(vertexP1, vertexP2, player2);
+
     checkBorders(player1, vertexP1[0]);
+
     checkBorders(player2, vertexP2[0]);
 
     //Solucion: Checkear la colision de la punta con el array de trail de cada jugador
