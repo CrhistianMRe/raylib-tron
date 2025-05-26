@@ -150,7 +150,7 @@ void initStage(){
         
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
 
-        DrawText(TextFormat("Player2 score: %d", scoreP2), 600, 1, 20, BLUE);
+        DrawText(TextFormat("Player2 score: %d", scoreP2), 820, 1, 20, BLUE);
     } else {
 
         if (player2.state && player1.state) {
