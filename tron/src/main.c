@@ -14,7 +14,7 @@ int main() {
         SetTargetFPS(60);
 
         BeginDrawing();
-        ClearBackground(Black);
+        ClearBackground(BLACK);
         initController(texture);
         EndDrawing();
     }
