@@ -35,7 +35,6 @@ int scoreP2 = 0;
 //player2.width = 40;
 //player2.color = BLUE;
 //player2.state = true;
-
 void savePos1(){
     if (player1.trailLength < 10000) {
         trailFix[player1.trailLength] = player1.position;
@@ -179,9 +178,12 @@ void initStage(){
     }
 }
 
-void initController() {
+void initController(Texture2D texture) {
     if (!gameStarted && !gameOver) {
         DrawText(TextFormat("Press space to start!"), 300, 500, 50, GREEN);
+
+        DrawTexture(texture, 300, 300, WHITE);
+
         if (IsKeyPressed(KEY_SPACE)) {
             gameStarted = true;
         }
