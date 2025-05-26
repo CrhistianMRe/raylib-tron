@@ -180,9 +180,9 @@ void initStage(){
 
 void initController(Texture2D texture) {
     if (!gameStarted && !gameOver) {
-        DrawText(TextFormat("Press space to start!"), 300, 500, 50, GREEN);
+        DrawText(TextFormat("Press space to start!"), 200, 500, 60, GREEN);
 
-        DrawTexture(texture, 300, 300, WHITE);
+        DrawTexture(texture, -15, -300, WHITE);
 
         if (IsKeyPressed(KEY_SPACE)) {
             gameStarted = true;
