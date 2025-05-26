@@ -179,7 +179,7 @@ void initStage(){
     }
 }
 
-void initGame() {
+void initController() {
     if (!gameStarted && !gameOver) {
         DrawText(TextFormat("Press space to start!"), 300, 500, 50, GREEN);
         if (IsKeyPressed(KEY_SPACE)) {

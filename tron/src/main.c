@@ -13,7 +13,7 @@ int main() {
 
         SetTargetFPS(60);
         //printf("Numero enter ooooiio%d\n", argc);
-        initGame();
+        initController();
         BeginDrawing();
         ClearBackground(BLACK);
 
