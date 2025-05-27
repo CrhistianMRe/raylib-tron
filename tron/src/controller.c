@@ -165,13 +165,13 @@ void initStage(){
             //Sleep or anything t2o show who won and restart
             DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
 
-            scoreP1 += 1;
+            scoreP2+= 1;
 
         } else if (player1.state){
 
             //Sleep or anything to show who won and restart
             DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
-            scoreP2+=1;
+            scoreP1+=1;
         }
         gameOver = true;
         gameStarted = false;
