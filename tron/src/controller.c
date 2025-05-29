@@ -31,51 +31,28 @@ void savePos2(){
     }
 }
 
-void movePlayer1(){
+void movePlayerPos(Triangle *player){
     if (IsKeyDown(KEY_UP)) {
-        player1.position.y -= speed;
-        player1.rotation = 270;
+        player->position.y -= speed;
+        player->rotation = 270;
         savePos1();
     }
     if (IsKeyDown(KEY_DOWN)) {
-        player1.position.y += speed;
-        player1.rotation = 90;
+        player->position.y += speed;
+        player->rotation = 90;
         savePos1();
     }
     if (IsKeyDown(KEY_LEFT)) {
-        player1.position.x -= speed;
-        player1.rotation = 180;
+        player->position.x -= speed;
+        player->rotation = 180;
         savePos1();
     }
     if (IsKeyDown(KEY_RIGHT)) {
-        player1.position.x += speed;
-        player1.rotation = 0;
+        player->position.x += speed;
+        player->rotation = 0;
         savePos1();
     }
 }
-
-void movePlayer2(){
-    if (IsKeyDown(KEY_W)) {
-        player2.position.y -= speed;
-        player2.rotation = 270;
-        savePos2();
-    }
-    if (IsKeyDown(KEY_S)) {
-        player2.position.y += speed;
-        player2.rotation = 90;
-        savePos2();
-    }
-    if (IsKeyDown(KEY_A)) {
-        player2.position.x -= speed;
-        player2.rotation = 180;
-        savePos2();
-    }
-    if (IsKeyDown(KEY_D)) {
-        player2.position.x += speed;
-        player2.rotation = 0;
-        savePos2();
-    }
-}   
 
 
 void restartPos(){
@@ -114,9 +91,9 @@ void restartPos(){
 void initStage(){
     if (!(player1.state || player2.state)) {
 
-        movePlayer1();
+        movePlayerPos(&player1);
+        movePlayerPos(&player2);
 
-        movePlayer2();
 
         defineTriShape(&player1, &player2);
 
