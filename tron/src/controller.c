@@ -17,41 +17,35 @@ Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
 int scoreP1 = 0; 
 int scoreP2 = 0; 
 
-void savePos1(){
-    if (player1.trailLength < 10000) {
-        player1.trail[player1.trailLength] = player1.position;
-        player1.trailLength+=1;
+void savePlayerPos(Triangle *player){
+    if (player->trailLength < 10000) {
+        player->trail[player->trailLength] = player->position;
+        player->trailLength+=1;
     }
 }
 
-void savePos2(){
-    if (player2.trailLength < 10000) {
-        player2.trail[player2.trailLength] = player2.position;
-        player2.trailLength+=1;
-    }
-}
+void movePlayerPos(Triangle *player, int numPlayer){
 
-void movePlayerPos(Triangle *player){
-    if (IsKeyDown(KEY_UP)) {
-        player->position.y -= speed;
-        player->rotation = 270;
-        savePos1();
-    }
-    if (IsKeyDown(KEY_DOWN)) {
-        player->position.y += speed;
-        player->rotation = 90;
-        savePos1();
-    }
-    if (IsKeyDown(KEY_LEFT)) {
-        player->position.x -= speed;
-        player->rotation = 180;
-        savePos1();
-    }
-    if (IsKeyDown(KEY_RIGHT)) {
-        player->position.x += speed;
-        player->rotation = 0;
-        savePos1();
-    }
+        if (IsKeyDown(KEY_UP)) {
+            player->position.y -= speed;
+            player->rotation = 270;
+            savePlayerPos(player);
+        }
+        if (IsKeyDown(KEY_DOWN)) {
+            player->position.y += speed;
+            player->rotation = 90;
+            savePlayerPos(player);
+        }
+        if (IsKeyDown(KEY_LEFT)) {
+            player->position.x -= speed;
+            player->rotation = 180;
+            savePlayerPos(player);
+        }
+        if (IsKeyDown(KEY_RIGHT)) {
+            player->position.x += speed;
+            player->rotation = 0;
+            savePlayerPos(player);
+        }
 }
 
 
