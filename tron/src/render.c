@@ -67,7 +67,7 @@ void initRender(Player *player1, Player *player2){
     drawTrail(player2);
 
     //Main collision method in collision.c
-    initCheckCollision(player1, player2, player1->trail, player1->triangle.vertex, player2->triangle.vertex);
+    initCheckCollision(player1, player2);
 }
 
 
