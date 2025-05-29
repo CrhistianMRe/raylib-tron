@@ -56,6 +56,8 @@ void drawPlayer(Player *player1, Player *player2){
     displayTriangle(player1);
     displayTriangle(player2);
 
+    //Main collision method in collision.c
+    checkCollision(player1, player2, player1->trail, player1->triangle.vertex, player2->triangle.vertex);
 }
 
 //Calling as a parameter another instance for trail
@@ -69,7 +71,6 @@ int drawTrail(Player *player1, Player *player2, Vector2 trailFix[]){
         //Empieza desde a y el +1 es para aumentar el rango
         DrawLineV(player2->trail[a], player2->trail[a +1], player2->color);
     }
-        checkCollision(player1, player2, player1->trail, player1->triangle.vertex, player2->triangle.vertex);
 
     return 0;
 }
