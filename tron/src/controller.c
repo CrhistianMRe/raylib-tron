@@ -12,9 +12,6 @@ int speed = 2;
 Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
 Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
 
-//Triangle sample1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
-
-//Triangle sample2= {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
 
 /*I tried to use the same player.h header for both but i have the theory that as it is a pointer and both being arrays
 it breaks because being dynamic also saves it on the same memory so i implemented different approaches/instances*/
@@ -22,19 +19,7 @@ Vector2 trailFix[100000];
 
 int scoreP1 = 0; 
 int scoreP2 = 0; 
-//player1.position.X = (Vector2){250};
-//player1.position.Y = (Vector2){100};
-//player1.height = 20;
-//player1.width = 40;
-//player1.color = RED;
-//player1.state = true;
 
-//player2.position.X = (Vector2){250};
-//player2.position.Y = (Vector2) {400};
-//player2.height = 20; 
-//player2.width = 40;
-//player2.color = BLUE;
-//player2.state = true;
 void savePos1(){
     if (player1.trailLength < 10000) {
         trailFix[player1.trailLength] = player1.position;
@@ -140,13 +125,6 @@ void initStage(){
 
         createLine(&player1, &player2, trailFix);
 
-        /*char mess1[100];
-          char mess2[100];
-          sprintf(mess1, "%d", scoreP1);
-          sprintf(mess2, "%d", scoreP2);*/
-
-        //printf("point p1: %d", scoreP1);
-        
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
 
         DrawText(TextFormat("Player2 score: %d", scoreP2), 820, 1, 20, BLUE);
@@ -198,37 +176,6 @@ void initController(Texture2D texture) {
             //Restart game
             restartPos();
             gameOver = false;
-
-
-            //Continue there
-            /*char str1[100];
-
-              char str2[100];
-
-              snprintf(str1, sizeof(str1), "%d", scoreP1);
-
-              snprintf(str2, sizeof(str2), "%d", scoreP2);
-              printf("point p1: %d", scoreP1);
-              printf("point p2222222222222222222222222222222222222222222: %d", scoreP2);
-              char path[100] ="/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib" ;
-              if (argc != 1) {
-              scoreP1 = atoi(argv[1]);
-
-              scoreP2 = atoi(argv[2]);
-              }
-
-
-              execlp(path, path, str1, str2, NULL);
-
-*/
-
-            //Este sirve
-
-            //error = execl("/home/crhistianm/Documents/TronGame/CraylibDef/tron/bin/Debug/Craylib", "Craylib", "-l", NULL);
-
-            //char *args[]={"./Craylib", NULL};
-
-            //execvp(args[0], args);*//*
 
         }
     } else if(gameStarted){
