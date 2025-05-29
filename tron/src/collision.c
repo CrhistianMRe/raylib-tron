@@ -22,10 +22,8 @@ void checkTriangles(Player *player1, Player *player2){
     }
 }
 
-
-void initCheckCollision(Player *player1, Player *player2){
-
-    //Checkear la punta player 2 cuando pega jugador 1
+void checkTrailCollision(Player *player1, Player *player2){
+//Checkear la punta player 2 cuando pega jugador 1
     for (long int a= 0;a < player1->trailLength; a++) {
         if ((player1->trail[a].x == player2->triangle.vertex[0].x && player1->trail[a].y == player2->triangle.vertex[0].y) && player1->state == false) {
             player2->state = true;
@@ -39,14 +37,18 @@ void initCheckCollision(Player *player1, Player *player2){
     for (long int a= 0 ;a < player2->trailLength; a++) {
         if ((player2->trail[a].x == player1->triangle.vertex[0].x && player2->trail[a].y == player1->triangle.vertex[0].y)&& player2->state == false) {
             player1->state = true;
-
         }
         //Punto pega a el mismo 2
         if ((player2->trail[a].x == player2->triangle.vertex[0].x && player2->trail[a].y == player2->triangle.vertex[0].y)&& player2->state == false) {
             player2->state = true;
-
         }
     }
+}
+
+
+void initCheckCollision(Player *player1, Player *player2){
+
+    checkTrailCollision(player1, player2);
 
     checkTriangles(player1, player2);
 
