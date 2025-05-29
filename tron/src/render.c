@@ -9,15 +9,12 @@
 Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
 
     float rad = rotation * (PI / 180.0f);
-
     float cosR = cosf(rad);
-
     float sinR = sinf(rad);
 
     Vector2 rotated;
 
     rotated.x = center.x + (point.x - center.x) * cosR - (point.y - center.y) * sinR;
-
     rotated.y = center.y + (point.x - center.x) * sinR + (point.y - center.y) * cosR;
 
     return rotated;
@@ -35,6 +32,7 @@ void drawPlayer(Player *player1, Player *player2){
 
     defineTriShape(player1);
     defineTriShape(player2);
+
     displayTriangle(player1);
     displayTriangle(player2);
 
