@@ -4,11 +4,10 @@
 #include <stdio.h>
 
 
-int checkBorders(Player *player, Vector2 front){
-    if (((front.x > 1000 || front.y > 1000) || (front.x < 0 || front.y < 0)) && !(player->state)) {
+void checkBorders(Player *player){
+    if (((player->position.x > 1000 || player->position.y > 1000) || (player->position.x < 0 || player->position.y < 0)) && !(player->state)) {
         player->state = true;
     }
-    return 0;
 }
 
 //Checks if a player hits another player
@@ -58,11 +57,9 @@ void initCheckCollision(Player *player1, Player *player2, Vector2 trailFix[], Ve
 
     checkTriangle(player1->triangle.vertex, player2->triangle.vertex, player2);
 
-    checkBorders(player1, player1->triangle.vertex[0]);
+    checkBorders(player1);
 
-    checkBorders(player2, player2->triangle.vertex[0]);
-
-    
+    checkBorders(player2);
 }
 
 
