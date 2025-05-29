@@ -2,7 +2,7 @@
 #define _TRIANGLE_H 
 #include "raylib.h" 
 
-#define VERTEX_AMOUNT 4
+#define VERTEX_AMOUNT 3
 typedef struct Triangle{
     Vector2 position;
     long int height;
