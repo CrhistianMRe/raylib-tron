@@ -4,11 +4,10 @@
 
 #define VERTEX_AMOUNT 3
 typedef struct Triangle{
-    Vector2 position;
     long int height;
     long int width;
     float rotation;
-    int vertex[VERTEX_AMOUNT];
+    Vector2 vertex[VERTEX_AMOUNT];
 } Triangle;
 
 
