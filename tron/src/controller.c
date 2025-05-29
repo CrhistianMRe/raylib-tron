@@ -10,8 +10,8 @@ static bool gameOver = false;
 
 const int speed = 2;
 
-Player player1 = {(Triangle)((Vector2){500, 200}, 20, 40, 0), RED, false, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}, 0};
-Player player2 = {(Triangle)((Vector2){500, 800}, 20, 40, 0), BLUE, false, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}, 0};
+Player player1 = {(Vector2){500, 200},(Triangle) {20, 40, 0}, RED, false, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}, 0};
+Player player2 = {(Vector2){500, 800},(Triangle) {20, 40, 0}, BLUE, false, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}, 0};
 
 
 void savePlayerPos(Player *player){
