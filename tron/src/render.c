@@ -28,18 +28,6 @@ if (!player) {
 }
 }
 
-void drawPlayer(Player *player1, Player *player2){
-
-    //Define first the shape of the triangle
-    defineTriShape(player1);
-    defineTriShape(player2);
-
-    //After defining shape draw the triangle
-    displayTriangle(player1);
-    displayTriangle(player2);
-
-}
-
 void defineTriShape(Player *player){
     //Vertex shape
     Vector2 p1 = { player->position.x + player->triangle.width / 2, player->position.y };
@@ -57,6 +45,18 @@ void defineTriShape(Player *player){
     player->triangle.vertex[2] = p3;
 }
 
+
+void drawPlayer(Player *player1, Player *player2){
+
+    //Define first the shape of the triangle
+    defineTriShape(player1);
+    defineTriShape(player2);
+
+    //After defining shape draw the triangle
+    displayTriangle(player1);
+    displayTriangle(player2);
+
+}
 
 //Calling as a parameter another instance for trail
 
