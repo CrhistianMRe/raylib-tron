@@ -9,8 +9,8 @@ static bool gameOver = false;
 
 int speed = 2;
 
-Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0, {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
-Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0, {KEY_W, KEY_S, KEY_A, KEY_D}};
+Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
+Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}};
 
 int scoreP1 = 0; 
 int scoreP2 = 0; 
@@ -23,6 +23,7 @@ void savePlayerPos(Triangle *player){
 }
 
 void movePlayerPos(Triangle *player){
+    printf("%d\n", player->key[0]);
         if (IsKeyDown(player->key[0])) {
             player->position.y -= speed;
             player->rotation = 270;
@@ -83,9 +84,9 @@ void restartPos(){
 void initStage(){
     if (!(player1.state || player2.state)) {
 
+
         movePlayerPos(&player1);
         movePlayerPos(&player2);
-
 
         defineTriShape(&player1, &player2);
 
