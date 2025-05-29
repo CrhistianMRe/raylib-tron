@@ -1,5 +1,5 @@
 #include "../include/raylib.h"
-#include "controller.c"
+#include "../include/controller.h"
 
 int main() {
     SetConfigFlags(FLAG_VSYNC_HINT | FLAG_WINDOW_HIGHDPI);
