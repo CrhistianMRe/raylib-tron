@@ -42,14 +42,14 @@ void drawPlayer(Player *player1, Player *player2){
 
 void defineTriShape(Player *player){
     //Vertex shape
-    Vector2 p1 = { player1->position.x + player1->triangle.width / 2, player1->position.y };
-    Vector2 p2 = { player1->position.x - player1->triangle.width / 2, player1->position.y - player1->triangle.height / 2 };
-    Vector2 p3 = { player1->position.x - player1->triangle.width / 2, player1->position.y + player1->triangle.height / 2 };
+    Vector2 p1 = { player->position.x + player->triangle.width / 2, player->position.y };
+    Vector2 p2 = { player->position.x - player->triangle.width / 2, player->position.y - player->triangle.height / 2 };
+    Vector2 p3 = { player->position.x - player->triangle.width / 2, player->position.y + player->triangle.height / 2 };
 
     //Add rotation to vertex
-    p1 = RotatePoint(p1, player1->position, player1->triangle.rotation);
-    p2 = RotatePoint(p2, player1->position, player1->triangle.rotation);
-    p3 = RotatePoint(p3, player1->position, player1->triangle.rotation);
+    p1 = RotatePoint(p1, player->position, player->triangle.rotation);
+    p2 = RotatePoint(p2, player->position, player->triangle.rotation);
+    p3 = RotatePoint(p3, player->position, player->triangle.rotation);
 
     //Assing values to player instance
     player->triangle.vertex[0] = p1;

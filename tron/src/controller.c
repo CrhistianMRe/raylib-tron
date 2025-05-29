@@ -86,7 +86,7 @@ void initStage(){
         movePlayerPos(&player1);
         movePlayerPos(&player2);
 
-        defineTriShape(&player1, &player2);
+        drawPlayer(&player1, &player2);
 
         drawTrail(&player1, &player2, player1.trail);
 
