@@ -33,51 +33,25 @@ if (!player) {
 
 void drawPlayer(Player *player1, Player *player2){
 
+    defineTriShape(player1);
+    defineTriShape(player2);
     displayTriangle(player1);
     displayTriangle(player2);
+
 }
 
-int defineTriShape(Player *player1, Player *player2){
+void defineTriShape(Player *player){
     Vector2 p1 = { player1->position.x + player1->triangle.width / 2, player1->position.y };
-
     Vector2 p2 = { player1->position.x - player1->triangle.width / 2, player1->position.y - player1->triangle.height / 2 };
-
     Vector2 p3 = { player1->position.x - player1->triangle.width / 2, player1->position.y + player1->triangle.height / 2 };
 
-    // Player 2
-    Vector2 q1 = { player2->position.x + player2->triangle.width / 2, player2->position.y };
-
-    Vector2 q2 = { player2->position.x - player2->triangle.width / 2, player2->position.y - player2->triangle.height / 2 };
-
-    Vector2 q3 = { player2->position.x - player2->triangle.width / 2, player2->position.y + player2->triangle.height / 2 };
-
-    //La rotacion no es el problema de la desaparicion
     p1 = RotatePoint(p1, player1->position, player1->triangle.rotation);
-
     p2 = RotatePoint(p2, player1->position, player1->triangle.rotation);
-
     p3 = RotatePoint(p3, player1->position, player1->triangle.rotation);
 
-    q1 = RotatePoint(q1, player2->position, player2->triangle.rotation);
-
-    q2 = RotatePoint(q2, player2->position, player2->triangle.rotation);
-
-    q3 = RotatePoint(q3, player2->position, player2->triangle.rotation);
-
-    player1->triangle.vertex[0] = p1;
-
-    player1->triangle.vertex[1] = p2;
-
-    player1->triangle.vertex[2] = p3;
-
-    player2->triangle.vertex[0] = q1;
-
-    player2->triangle.vertex[1] = q2;
-
-    player2->triangle.vertex[2] = q3;
-
-
-    return 0;
+    player->triangle.vertex[0] = p1;
+    player->triangle.vertex[1] = p2;
+    player->triangle.vertex[2] = p3;
 }
 
 
