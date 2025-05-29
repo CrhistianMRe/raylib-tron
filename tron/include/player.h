@@ -8,6 +8,7 @@
 #define KEY_AMOUNT 4 
 
 typedef struct Player{
+    Vector2 position;
     Triangle triangle;
     Color color;
     bool state;
