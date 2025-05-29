@@ -45,6 +45,12 @@ void defineTriShape(Player *player){
     player->triangle.vertex[2] = p3;
 }
 
+void drawTrail(Player *player){
+    for (long int a = 1;a < player->trailLength -3; a++) {
+        //Empieza desde a y el +1 es para aumentar el rango
+        DrawLineV(player->trail[a], player->trail[a +1], player->color);
+    } 
+}
 
 void drawPlayer(Player *player1, Player *player2){
 
@@ -56,24 +62,14 @@ void drawPlayer(Player *player1, Player *player2){
     displayTriangle(player1);
     displayTriangle(player2);
 
+    //Trail
+    drawTrail(player1);
+    drawTrail(player2);
+
     //Main collision method in collision.c
     checkCollision(player1, player2, player1->trail, player1->triangle.vertex, player2->triangle.vertex);
 }
 
-//Calling as a parameter another instance for trail
-
-int drawTrail(Player *player1, Player *player2, Vector2 trailFix[]){
-    for (long int a = 1;a < player1->trailLength -3; a++) {
-        //Empieza desde a y el +1 es para aumentar el rango
-        DrawLineV(player1->trail[a], player1->trail[a +1], player1->color);
-    } 
-    for (long int a = 1;a < player2->trailLength -3; a++) {
-        //Empieza desde a y el +1 es para aumentar el rango
-        DrawLineV(player2->trail[a], player2->trail[a +1], player2->color);
-    }
-
-    return 0;
-}
 
 
 
