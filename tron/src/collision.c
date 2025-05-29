@@ -30,7 +30,7 @@ int checkTriangle(Vector2 vertexP1[], Vector2 vertexP2[], Player *player){
 }
 
 
-int checkCollision(Player *player1, Player *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
+void initCheckCollision(Player *player1, Player *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
 
     //Checkear la punta player 2 cuando pega jugador 1
     for (long int a= 0;a < player1->trailLength; a++) {
