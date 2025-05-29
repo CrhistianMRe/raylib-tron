@@ -1,5 +1,6 @@
 #include "../include/raylib.h"
 #include "../include/player.h"
+#include "../include/collision.h"
 #include <math.h>
 #include <stdio.h>
 
