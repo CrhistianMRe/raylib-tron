@@ -115,8 +115,6 @@ void initController(Texture2D texture) {
 
     } else if (!gameStarted && gameOver){
         DrawText(TextFormat("Press R to restart!"),300, 500, 50, BLUE);
-        printf("player 1: %d\n", player1.state);
-        printf("player 2: %d\n", player2.state);
 
         if (IsKeyPressed(KEY_R)) {
             //Restart game
