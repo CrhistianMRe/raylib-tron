@@ -9,20 +9,20 @@ static bool gameOver = false;
 
 int speed = 2;
 
-Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
-Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}};
+Player player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
+Player player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}};
 
 int scoreP1 = 0; 
 int scoreP2 = 0; 
 
-void savePlayerPos(Triangle *player){
+void savePlayerPos(Player *player){
     if (player->trailLength < 10000) {
         player->trail[player->trailLength] = player->position;
         player->trailLength+=1;
     }
 }
 
-void movePlayerPos(Triangle *player){
+void movePlayerPos(Player *player){
         if (IsKeyDown(player->key[0])) {
             player->position.y -= speed;
             player->rotation = 270;
