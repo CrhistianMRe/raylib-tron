@@ -25,7 +25,7 @@ Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
     return rotated;
 }
 
-int displayTriangle(Triangle *player1, Triangle *player2) {
+int displayTriangle(Player *player1, Player *player2) {
 if (!player1 || !player2) {
     printf("Error: player1 or player2 is NULL\n");
 }else{
@@ -35,7 +35,7 @@ if (!player1 || !player2) {
     return 0;
 }
 
-int defineTriShape(Triangle *player1, Triangle *player2){
+int defineTriShape(Player *player1, Player *player2){
     Vector2 p1 = { player1->position.x + player1->width / 2, player1->position.y };
 
     Vector2 p2 = { player1->position.x - player1->width / 2, player1->position.y - player1->height / 2 };
@@ -82,7 +82,7 @@ int defineTriShape(Triangle *player1, Triangle *player2){
 
 //Calling as a parameter another instance for trail
 
-int drawTrail(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
+int drawTrail(Player *player1, Player *player2, Vector2 trailFix[]){
     for (long int a = 1;a < player1->trailLength -3; a++) {
         //Empieza desde a y el +1 es para aumentar el rango
         DrawLineV(player1->trail[a], player1->trail[a +1], player1->color);
