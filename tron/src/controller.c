@@ -24,22 +24,22 @@ void savePlayerPos(Player *player){
 void movePlayerPos(Player *player){
         if (IsKeyDown(player->key[0])) {
             player->position.y -= speed;
-            player->rotation = 270;
+            player->triangle.rotation = 270;
             savePlayerPos(player);
         }
         if (IsKeyDown(player->key[1])) {
             player->position.y += speed;
-            player->rotation = 90;
+            player->triangle.rotation = 90;
             savePlayerPos(player);
         }
         if (IsKeyDown(player->key[2])) {
             player->position.x -= speed;
-            player->rotation = 180;
+            player->triangle.rotation = 180;
             savePlayerPos(player);
         }
         if (IsKeyDown(player->key[3])) {
             player->position.x += speed;
-            player->rotation = 0;
+            player->triangle.rotation = 0;
             savePlayerPos(player);
         }
 }
@@ -52,17 +52,17 @@ void restartPos(){
 
     player2.position = (Vector2){500, 800};
     
-    player1.height = 20;
+    player1.triangle.height = 20;
 
-    player2.height = 20;
+    player2.triangle.height = 20;
 
-    player1.width = 40;
+    player1.triangle.width = 40;
 
-    player2.width = 40;
+    player2.triangle.width = 40;
 
-    player1.rotation = 0;
+    player1.triangle.rotation = 0;
 
-    player2.rotation = 0;
+    player2.triangle.rotation = 0;
 
     player1.state = false;
 
