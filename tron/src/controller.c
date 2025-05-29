@@ -12,8 +12,6 @@ int speed = 2;
 Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0, {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
 Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0, {KEY_W, KEY_S, KEY_A, KEY_D});
 
-
-
 int scoreP1 = 0; 
 int scoreP2 = 0; 
 
@@ -24,29 +22,29 @@ void savePlayerPos(Triangle *player){
     }
 }
 
-void movePlayerPos(Triangle *player, int numPlayer){
-
-        if (IsKeyDown(KEY_UP)) {
+void movePlayerPos(Triangle *player){
+        if (IsKeyDown(player->key[0])) {
             player->position.y -= speed;
             player->rotation = 270;
             savePlayerPos(player);
         }
-        if (IsKeyDown(KEY_DOWN)) {
+        if (IsKeyDown(player->key[1])) {
             player->position.y += speed;
             player->rotation = 90;
             savePlayerPos(player);
         }
-        if (IsKeyDown(KEY_LEFT)) {
+        if (IsKeyDown(player->key[2])) {
             player->position.x -= speed;
             player->rotation = 180;
             savePlayerPos(player);
         }
-        if (IsKeyDown(KEY_RIGHT)) {
+        if (IsKeyDown(player->key[3])) {
             player->position.x += speed;
             player->rotation = 0;
             savePlayerPos(player);
         }
 }
+
 
 
 void restartPos(){
