@@ -88,8 +88,6 @@ void initStage(){
 
         drawPlayer(&player1, &player2);
 
-        drawTrail(&player1, &player2, player1.trail);
-
         DrawText(TextFormat("Player1 score: %d", player1.score), 1, 1, 20, RED);
 
         DrawText(TextFormat("Player2 score: %d", player2.score), 820, 1, 20, BLUE);
