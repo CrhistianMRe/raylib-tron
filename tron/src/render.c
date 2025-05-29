@@ -1,9 +1,9 @@
 #include "../include/player.h"
 #include "../include/raylib.h"
-#include "../include/render.h"
+#include "../include/collision.h"
+
 #include <math.h>
 #include <stdio.h>
-#include "collision.c"
 
 
 // Función para rotar un punto
