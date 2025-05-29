@@ -11,7 +11,7 @@ void checkBorders(Player *player){
 }
 
 //Checks if a player hits another player
-void checkTriangle(Player *player1, Player *player2){
+void checkTriangles(Player *player1, Player *player2){
     for(int i = 0; i < 3; i++) {
         if (CheckCollisionPointTriangle(player1->triangle.vertex[i], player2->triangle.vertex[0], player2->triangle.vertex[1], player2->triangle.vertex[2] )) {
             player1->state= true;
@@ -47,7 +47,7 @@ void initCheckCollision(Player *player1, Player *player2, Vector2 trailFix[], Ve
 
         }
     }
-    checkTriangle(player1, player2);
+    checkTriangles(player1, player2);
 
 
     checkBorders(player1);
