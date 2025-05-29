@@ -1,9 +1,10 @@
 #include "../include/player.h"
-#include "unistd.h"
-#include "render.c"
-#include "../include/raylib.h"
-#include "stdlib.h"
 #include "../include/triangle.h"
+#include "../include/raylib.h"
+#include "../include/render.h"
+
+#include "unistd.h"
+#include "stdlib.h"
 //No tocar esto lo reconoce raylib
 static bool gameStarted = false;
 static bool gameOver = false;
@@ -22,26 +23,26 @@ void savePlayerPos(Player *player){
 }
 
 void movePlayerPos(Player *player){
-        if (IsKeyDown(player->key[0])) {
-            player->position.y -= speed;
-            player->triangle.rotation = 270;
-            savePlayerPos(player);
-        }
-        if (IsKeyDown(player->key[1])) {
-            player->position.y += speed;
-            player->triangle.rotation = 90;
-            savePlayerPos(player);
-        }
-        if (IsKeyDown(player->key[2])) {
-            player->position.x -= speed;
-            player->triangle.rotation = 180;
-            savePlayerPos(player);
-        }
-        if (IsKeyDown(player->key[3])) {
-            player->position.x += speed;
-            player->triangle.rotation = 0;
-            savePlayerPos(player);
-        }
+    if (IsKeyDown(player->key[0])) {
+        player->position.y -= speed;
+        player->triangle.rotation = 270;
+        savePlayerPos(player);
+    }
+    if (IsKeyDown(player->key[1])) {
+        player->position.y += speed;
+        player->triangle.rotation = 90;
+        savePlayerPos(player);
+    }
+    if (IsKeyDown(player->key[2])) {
+        player->position.x -= speed;
+        player->triangle.rotation = 180;
+        savePlayerPos(player);
+    }
+    if (IsKeyDown(player->key[3])) {
+        player->position.x += speed;
+        player->triangle.rotation = 0;
+        savePlayerPos(player);
+    }
 }
 
 
@@ -51,7 +52,7 @@ void restartPos(){
     player1.position = (Vector2){500, 200};
 
     player2.position = (Vector2){500, 800};
-    
+
     player1.triangle.height = 20;
 
     player2.triangle.height = 20;
