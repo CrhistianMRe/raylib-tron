@@ -85,13 +85,13 @@ int defineTriShape(Triangle *player1, Triangle *player2){
 int drawTrail(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
     for (long int a = 1;a < player1->trailLength -3; a++) {
         //Empieza desde a y el +1 es para aumentar el rango
-        DrawLineV(trailFix[a], trailFix[a +1], player1->color);
+        DrawLineV(player1->trail[a], player1->trail[a +1], player1->color);
     } 
     for (long int a = 1;a < player2->trailLength -3; a++) {
         //Empieza desde a y el +1 es para aumentar el rango
         DrawLineV(player2->trail[a], player2->trail[a +1], player2->color);
     }
-        checkCollision(player1, player2, trailFix, vertexP1, vertexP2);
+        checkCollision(player1, player2, player1->trail, vertexP1, vertexP2);
 
     return 0;
 }
