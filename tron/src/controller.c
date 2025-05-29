@@ -86,7 +86,7 @@ void initStage(){
         movePlayerPos(&player1);
         movePlayerPos(&player2);
 
-        drawPlayer(&player1, &player2);
+        initRender(&player1, &player2);
 
         DrawText(TextFormat("Player1 score: %d", player1.score), 1, 1, 20, RED);
 

@@ -52,7 +52,7 @@ void drawTrail(Player *player){
     } 
 }
 
-void drawPlayer(Player *player1, Player *player2){
+void initRender(Player *player1, Player *player2){
 
     //Define first the shape of the triangle
     defineTriShape(player1);
