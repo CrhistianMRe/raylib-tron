@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 
-int checkBorders(Triangle *player, Vector2 front){
+int checkBorders(Player *player, Vector2 front){
     if (((front.x > 1000 || front.y > 1000) || (front.x < 0 || front.y < 0)) && !(player->state)) {
         player->state = true;
     }
@@ -12,7 +12,7 @@ int checkBorders(Triangle *player, Vector2 front){
 }
 
 //Checks if a player hits another player
-int checkTriangle(Vector2 vertexP1[], Vector2 vertexP2[], Triangle *player){
+int checkTriangle(Vector2 vertexP1[], Vector2 vertexP2[], Player *player){
 
     
     for(int i = 0; i < 3; i++) {
@@ -30,7 +30,7 @@ int checkTriangle(Vector2 vertexP1[], Vector2 vertexP2[], Triangle *player){
 }
 
 
-int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
+int checkCollision(Player *player1, Player *player2, Vector2 trailFix[], Vector2 vertexP1[], Vector2 vertexP2[]){
 
     //Checkear la punta player 2 cuando pega jugador 1
     for (long int a= 0;a < player1->trailLength; a++) {
