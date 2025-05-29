@@ -36,31 +36,31 @@ if (!player1 || !player2) {
 }
 
 int defineTriShape(Player *player1, Player *player2){
-    Vector2 p1 = { player1->position.x + player1->width / 2, player1->position.y };
+    Vector2 p1 = { player1->position.x + player1->triangle.width / 2, player1->position.y };
 
-    Vector2 p2 = { player1->position.x - player1->width / 2, player1->position.y - player1->height / 2 };
+    Vector2 p2 = { player1->position.x - player1->triangle.width / 2, player1->position.y - player1->triangle.height / 2 };
 
-    Vector2 p3 = { player1->position.x - player1->width / 2, player1->position.y + player1->height / 2 };
+    Vector2 p3 = { player1->position.x - player1->triangle.width / 2, player1->position.y + player1->triangle.height / 2 };
 
     // Player 2
-    Vector2 q1 = { player2->position.x + player2->width / 2, player2->position.y };
+    Vector2 q1 = { player2->position.x + player2->triangle.width / 2, player2->position.y };
 
-    Vector2 q2 = { player2->position.x - player2->width / 2, player2->position.y - player2->height / 2 };
+    Vector2 q2 = { player2->position.x - player2->triangle.width / 2, player2->position.y - player2->triangle.height / 2 };
 
-    Vector2 q3 = { player2->position.x - player2->width / 2, player2->position.y + player2->height / 2 };
+    Vector2 q3 = { player2->position.x - player2->triangle.width / 2, player2->position.y + player2->triangle.height / 2 };
 
     //La rotacion no es el problema de la desaparicion
-    p1 = RotatePoint(p1, player1->position, player1->rotation);
+    p1 = RotatePoint(p1, player1->position, player1->triangle.rotation);
 
-    p2 = RotatePoint(p2, player1->position, player1->rotation);
+    p2 = RotatePoint(p2, player1->position, player1->triangle.rotation);
 
-    p3 = RotatePoint(p3, player1->position, player1->rotation);
+    p3 = RotatePoint(p3, player1->position, player1->triangle.rotation);
 
-    q1 = RotatePoint(q1, player2->position, player2->rotation);
+    q1 = RotatePoint(q1, player2->position, player2->triangle.rotation);
 
-    q2 = RotatePoint(q2, player2->position, player2->rotation);
+    q2 = RotatePoint(q2, player2->position, player2->triangle.rotation);
 
-    q3 = RotatePoint(q3, player2->position, player2->rotation);
+    q3 = RotatePoint(q3, player2->position, player2->triangle.rotation);
 
     vertexP1[0] = p1;
 
