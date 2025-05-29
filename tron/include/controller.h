@@ -15,5 +15,6 @@ void initStage();
 
 void initController(Texture2D texture); 
 
+#endif
 
 
