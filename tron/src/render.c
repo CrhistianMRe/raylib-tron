@@ -23,14 +23,12 @@ Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
     return rotated;
 }
 
-int displayTriangle(Player *player1, Player *player2) {
-if (!player1 || !player2) {
+void displayTriangle(Player *player) {
+if (!player) {
     printf("Error: player1 or player2 is NULL\n");
 }else{
-    DrawTriangle(player1->triangle.vertex[0], player1->triangle.vertex[1], player1->triangle.vertex[2], player1->color);
-    DrawTriangle(player2->triangle.vertex[0], player2->triangle.vertex[1], player2->triangle.vertex[2], player2->color);
+    DrawTriangle(player->triangle.vertex[0], player->triangle.vertex[1], player->triangle.vertex[2], player->color);
 }
-    return 0;
 }
 
 int defineTriShape(Player *player1, Player *player2){
@@ -72,7 +70,8 @@ int defineTriShape(Player *player1, Player *player2){
 
     player2->triangle.vertex[2] = q3;
 
-    displayTriangle(player1, player2);
+    displayTriangle(player1);
+    displayTriangle(player2);
 
     return 0;
 }
