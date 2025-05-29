@@ -8,7 +8,7 @@
 #define KEY_AMOUNT 4 
 
 typedef struct Player{
-    Triangle triangle
+    Triangle triangle;
     Color color;
     bool state;
     long int trailLength;
