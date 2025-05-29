@@ -63,7 +63,6 @@ void initCheckCollision(Player *player1, Player *player2, Vector2 trailFix[], Ve
     checkBorders(player2, player2->triangle.vertex[0]);
 
     
-  return 0;
 }
 
 
