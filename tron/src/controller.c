@@ -47,7 +47,7 @@ void movePlayerPos(Player *player){
 
 
 
-void restartPos(){
+void restartPlayer(){
 
     player1.position = (Vector2){500, 200};
 
@@ -138,7 +138,7 @@ void initController(Texture2D texture) {
         if (IsKeyPressed(KEY_R)) {
 
             //Restart game
-            restartPos();
+            restartPlayer();
             gameOver = false;
 
         }
