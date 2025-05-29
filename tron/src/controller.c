@@ -13,16 +13,13 @@ Triangle player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0};
 Triangle player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0};
 
 
-/*I tried to use the same player.h header for both but i have the theory that as it is a pointer and both being arrays
-it breaks because being dynamic also saves it on the same memory so i implemented different approaches/instances*/
-Vector2 trailFix[100000]; 
 
 int scoreP1 = 0; 
 int scoreP2 = 0; 
 
 void savePos1(){
     if (player1.trailLength < 10000) {
-        trailFix[player1.trailLength] = player1.position;
+        player1.trail[player1.trailLength] = player1.position;
         player1.trailLength+=1;
     }
 }
@@ -104,7 +101,7 @@ void restartPos(){
     player2.state = false;
 
     for (int i = 0; i < player1.trailLength; i++) {
-        trailFix[i] = (Vector2){0, 0}; 
+        player1.trail[i] = (Vector2){0, 0}; 
     }
     for (int i = 0; i < player2.trailLength; i++) {
         player2.trail[i] = (Vector2){0, 0}; 
@@ -123,7 +120,7 @@ void initStage(){
 
         defineTriShape(&player1, &player2);
 
-        drawTrail(&player1, &player2, trailFix);
+        drawTrail(&player1, &player2, player1.trail);
 
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
 
