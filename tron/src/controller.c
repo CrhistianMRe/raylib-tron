@@ -9,11 +9,9 @@ static bool gameOver = false;
 
 int speed = 2;
 
-Player player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}};
-Player player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}};
+Player player1 = {(Vector2){500, 200}, 20, 40, RED, false, 0, 0,{},{KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT}, 0};
+Player player2 = {(Vector2){500, 800}, 20, 40, BLUE, false, 0, 0,{}, {KEY_W, KEY_S, KEY_A, KEY_D}, 0};
 
-int scoreP1 = 0; 
-int scoreP2 = 0; 
 
 void savePlayerPos(Player *player){
     if (player->trailLength < 10000) {
@@ -91,31 +89,31 @@ void initStage(){
 
         drawTrail(&player1, &player2, player1.trail);
 
-        DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
+        DrawText(TextFormat("Player1 score: %d", player1.score), 1, 1, 20, RED);
 
-        DrawText(TextFormat("Player2 score: %d", scoreP2), 820, 1, 20, BLUE);
+        DrawText(TextFormat("Player2 score: %d", player2.score), 820, 1, 20, BLUE);
     } else {
 
         if (player2.state && player1.state) {
 
             DrawText(TextFormat("Both players died!"), 300, 500, 20, RED);
 
-            scoreP1 += 1;
-            scoreP2 += 1;
+            player1.score += 1;
+            player2.score += 1;
 
-        } else if (player2.state){
+        } else if (player1.state){
 
 
             //Sleep or anything t2o show who won and restart
             DrawText(TextFormat("Player 1 won!"), 300, 500, 20, RED);
 
-            scoreP2+= 1;
+            player2.score += 1;
 
-        } else if (player1.state){
+        } else if (player2.state){
 
             //Sleep or anything to show who won and restart
             DrawText(TextFormat("Player 2 won!"), 300, 500, 20, RED);
-            scoreP1+=1;
+            player1.score += 1;
         }
         gameOver = true;
         gameStarted = false;
