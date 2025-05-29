@@ -62,31 +62,7 @@ int checkCollision(Triangle *player1, Triangle *player2, Vector2 trailFix[], Vec
 
     checkBorders(player2, vertexP2[0]);
 
-    //Solucion: Checkear la colision de la punta con el array de trail de cada jugador
-    /*if (playerq != 1) {
-        player1->state = (CheckCollisionPointTriangle(player2->trail[playerp],  points[0], points[1], points[2]));
-    //} else if (playerp != 1){
-        player2->state = (CheckCollisionPointTriangle(trailFix[playerp], points[3], points[4], points[5]));
-    } else {
-        
-    }* test 3/
-        //printf("player 1: %d\n", player1->state); debug
-        //Vector2* collisionPoint;
     
-    /*I dont know why this function doesnt work so i will make my own one to check the collision. Update= it doesnt work with triangles 
-        player1->state = CheckCollisionLines(trailFix[playerq], trailFix[playerq+1], trailFix[playerq], trailFix[playerq+1], collisionPoint);
-        player2->state = CheckCollisionLines(player2->trail[playerq], player2->trail[playerq +1], player2->trail[playerq], player2->trail[playerq+1], collisionPoint);
-        printf("player 2: %d\n", player2->state);
-    *Test 2/
-
-
-    /*for (int first; first < player1->trailLength ;first++ {
-        for (int second; second < player2->trailLength;second++) {
-            if (true) {
-            }
-
-        }
-    test 1*//* */
   return 0;
 }
 
