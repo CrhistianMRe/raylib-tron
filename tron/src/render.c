@@ -3,8 +3,6 @@
 #include <math.h>
 #include <stdio.h>
 #include "collision.c"
-Vector2 vertexP1[3]; 
-Vector2 vertexP2[3]; 
 
 
 // Función para rotar un punto
@@ -29,8 +27,8 @@ int displayTriangle(Player *player1, Player *player2) {
 if (!player1 || !player2) {
     printf("Error: player1 or player2 is NULL\n");
 }else{
-    DrawTriangle(vertexP1[0], vertexP1[1], vertexP1[2], player1->color);
-    DrawTriangle(vertexP2[0], vertexP2[1], vertexP2[2], player2->color);
+    DrawTriangle(player1->triangle.vertex[0], player1->triangle.vertex[1], player1->triangle.vertex[2], player1->color);
+    DrawTriangle(player2->triangle.vertex[0], player2->triangle.vertex[1], player2->triangle.vertex[2], player2->color);
 }
     return 0;
 }
@@ -62,17 +60,17 @@ int defineTriShape(Player *player1, Player *player2){
 
     q3 = RotatePoint(q3, player2->position, player2->triangle.rotation);
 
-    vertexP1[0] = p1;
+    player1->triangle.vertex[0] = p1;
 
-    vertexP1[1] = p2;
+    player1->triangle.vertex[1] = p2;
 
-    vertexP1[2] = p3;
+    player1->triangle.vertex[2] = p3;
 
-    vertexP2[0] = q1;
+    player2->triangle.vertex[0] = q1;
 
-    vertexP2[1] = q2;
+    player2->triangle.vertex[1] = q2;
 
-    vertexP2[2] = q3;
+    player2->triangle.vertex[2] = q3;
 
     displayTriangle(player1, player2);
 
@@ -91,7 +89,7 @@ int drawTrail(Player *player1, Player *player2, Vector2 trailFix[]){
         //Empieza desde a y el +1 es para aumentar el rango
         DrawLineV(player2->trail[a], player2->trail[a +1], player2->color);
     }
-        checkCollision(player1, player2, player1->trail, vertexP1, vertexP2);
+        checkCollision(player1, player2, player1->trail, player1->triangle.vertex, player2->triangle.vertex);
 
     return 0;
 }
