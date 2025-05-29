@@ -1,5 +1,6 @@
 #include "../include/player.h"
 #include "../include/raylib.h"
+#include "../include/render.h"
 #include <math.h>
 #include <stdio.h>
 #include "collision.c"
@@ -21,11 +22,11 @@ Vector2 RotatePoint(Vector2 point, Vector2 center, float rotation) {
 }
 
 void displayTriangle(Player *player) {
-if (!player) {
-    printf("Error: player1 or player2 is NULL\n");
-}else{
-    DrawTriangle(player->triangle.vertex[0], player->triangle.vertex[1], player->triangle.vertex[2], player->color);
-}
+    if (!player) {
+        printf("Error: player1 or player2 is NULL\n");
+    }else{
+        DrawTriangle(player->triangle.vertex[0], player->triangle.vertex[1], player->triangle.vertex[2], player->color);
+    }
 }
 
 void defineTriShape(Player *player){
