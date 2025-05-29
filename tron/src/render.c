@@ -31,6 +31,12 @@ if (!player) {
 }
 }
 
+void drawPlayer(Player *player1, Player *player2){
+
+    displayTriangle(player1);
+    displayTriangle(player2);
+}
+
 int defineTriShape(Player *player1, Player *player2){
     Vector2 p1 = { player1->position.x + player1->triangle.width / 2, player1->position.y };
 
@@ -70,8 +76,6 @@ int defineTriShape(Player *player1, Player *player2){
 
     player2->triangle.vertex[2] = q3;
 
-    displayTriangle(player1);
-    displayTriangle(player2);
 
     return 0;
 }
