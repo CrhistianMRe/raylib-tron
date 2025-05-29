@@ -23,7 +23,6 @@ void savePlayerPos(Triangle *player){
 }
 
 void movePlayerPos(Triangle *player){
-    printf("%d\n", player->key[0]);
         if (IsKeyDown(player->key[0])) {
             player->position.y -= speed;
             player->rotation = 270;
