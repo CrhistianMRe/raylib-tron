@@ -82,7 +82,7 @@ int defineTriShape(Triangle *player1, Triangle *player2){
 
 //Calling as a parameter another instance for trail
 
-int drawPlayerTrail(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
+int drawTrail(Triangle *player1, Triangle *player2, Vector2 trailFix[]){
     for (long int a = 1;a < player1->trailLength -3; a++) {
         //Empieza desde a y el +1 es para aumentar el rango
         DrawLineV(trailFix[a], trailFix[a +1], player1->color);
