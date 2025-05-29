@@ -123,7 +123,7 @@ void initStage(){
 
         defineTriShape(&player1, &player2);
 
-        createLine(&player1, &player2, trailFix);
+        drawPlayerTrail(&player1, &player2, trailFix);
 
         DrawText(TextFormat("Player1 score: %d", scoreP1), 1, 1, 20, RED);
 
