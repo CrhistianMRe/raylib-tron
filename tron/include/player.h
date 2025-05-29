@@ -14,6 +14,7 @@ typedef struct Player{
     long int trailLength;
     Vector2 trail[MAX_TRAIL];
     int key[4];
+    int score;
 } Player;
 
 
