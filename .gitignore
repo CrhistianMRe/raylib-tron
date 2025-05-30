@@ -4,6 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 index.js
 index.wasm
+tron.wasm
+tron.js
 #Compiling executables
 index.html
 tronGame 
