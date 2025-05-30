@@ -7,7 +7,7 @@ tronWasm:
 	emcc src/*.c \
 		-I include \
 		lib/libraylib.web.a \
-		-o build/raylib.js \
+		-o build/tron.js \
 		-DPLATFORM_WEB \
 		-s USE_GLFW=3 \
 		-s ASYNCIFY \
