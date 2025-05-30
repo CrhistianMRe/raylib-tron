@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Raylib WebAssembly</title>
+    <style>
+      body { margin: 0; background: black; }
+      canvas { display: block; margin: 0 auto; background: black; }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script>
+      var Module = {
+        canvas: document.getElementById("canvas")
+      };
+    </script>
+    <script src="raylib.js"></script>
+  </body>
+</html>
+
