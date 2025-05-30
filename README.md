@@ -10,6 +10,7 @@
 2. Install emscripten and add to PATH 
 3. On Makefile directory run on terminal "make tronWasm"
 4. After succesfully compiling run "python -m http.server" on same directory
+5. Open localhost http url on browser
 
 ## Goal
 A Single-Console Video Game
