@@ -6,6 +6,7 @@ index.js
 index.wasm
 tron.wasm
 tron.js
+raylib.js
 #Compiling executables
 index.html
 tronGame 
