@@ -11,6 +11,7 @@
 3. On Makefile directory run on terminal "make tronWasm"
 4. After succesfully compiling run "python -m http.server" on same directory
 5. Open localhost http url on browser
+6. Open tron.html file in build directory
 
 ## Goal
 A Single-Console Video Game
