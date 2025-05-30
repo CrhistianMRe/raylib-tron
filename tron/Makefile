@@ -17,4 +17,4 @@ tronWasm:
 		-std=c99 \
 
 clean:
-	rm build/tronGame build/tronGame.exe build/index.html build/index.wasm build/index.js build/raylib.js
+	rm build/tronGame build/tronGame.exe build/index.html build/index.wasm build/index.js build/raylib.js build/raylib.wasm build/tron.wasm build/tron.js
