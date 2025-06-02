@@ -1,22 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Raylib WebAssembly</title>
-    <style>
-      body { margin: 0; background: black; }
-      canvas { display: block; margin: 0 auto; background: black; }
-    </style>
-  </head>
-  <body>
-    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<head>
+  <meta charset="UTF-8">
+  <title>Tron Game with webassembly</title>
+  <style> /*css basico para quitar los margenes, agregar el gif, colores y aspecto*/
+    body {
+      background: black;
+      margin: 0;
+      padding: 0;
+    }
 
-    <script>
-      var Module = {
-        canvas: document.getElementById("canvas")
-      };
-    </script>
-    <script src="tron.js"></script>
-  </body>
+    #intro {
+      background-image: url("tron.gif");
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      padding-top: 200px;
+      color: white;
+    }
+
+    #start-btn {
+      padding: 10px 20px;
+      font-size: 80px;
+      background-color: rgb(0, 240, 255)
+;
+      color: white;
+      border: 1px solid white;
+      margin-top: 20px;
+    }
+
+    canvas {
+      display: none;
+      background-color: black;
+      width: 100%;
+      height: 100vh;
+    }
+    @font-face { /*Libreria importa para el font */
+    font-family: 'TRON';
+    src: url('tr2n/tr2n.ttf') format('woff');
+    }
+
+
+    h1{
+      font-size: 150px;
+      font-family: 'TRON';
+    }
+
+  </style>
+</head>
+<body>
+<audio autoplay loop>
+  <source src="tron_music.mp3" type="audio/mpeg">
+  Tu navegador no soporta el elemento de audio.
+</audio>
+
+<div id="intro">
+  <h1>Welcome to Tron</h1>
+  <button id="start-btn">Start</button>
+</div>
+
+<canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+<script>
+  let boton = document.getElementById("start-btn"); // nombre del boton iniciar
+  boton.onclick = function () { //listener del boton y ejecuta la siguiente funcion
+    document.getElementById("intro").style.display = "none";//ocultamos el juego para que aparezca solo cuando presionemos el boton start-btn
+    let canvas = document.getElementById("canvas"); // ahora ya es visible 
+    canvas.style.display = "block"; //propiedad de css ejemplo flexbox pero en estilo bloque para que ocupe toda la pantalla 
+
+    // No se usar webassembly asi que esto lo busque
+    window.Module = {
+      canvas: canvas
+    };
+
+    let s = document.createElement('script');//ya con esto aparece el script
+    s.src = 'tron.js';
+    document.body.appendChild(s);
+  }
+</script>
+
+</body>
 </html>
-
